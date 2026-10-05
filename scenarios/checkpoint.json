@@ -1,0 +1,20 @@
+{
+  "name": "my-checkpoint",
+  "description": "初始脚本登记零延时任务，再排两级微任务",
+  "callbacks": [
+    {
+      "name": "microA",
+      "ops": [
+        { "op": "log", "text": "microA" },
+        { "op": "micro", "callback": "microB" }
+      ]
+    },
+    { "name": "microB", "ops": [{ "op": "log", "text": "microB" }] },
+    { "name": "timerCb", "ops": [{ "op": "log", "text": "timerZero" }] }
+  ],
+  "init": [
+    { "op": "log", "text": "init-log" },
+    { "op": "schedule", "callback": "timerCb", "delay": 0, "label": "zero" },
+    { "op": "micro", "callback": "microA" }
+  ]
+}
