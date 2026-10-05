@@ -1,0 +1,20 @@
+{
+  "initial": "start",
+  "microtaskLimit": 1000,
+  "callbacks": {
+    "start": [
+      { "op": "log", "text": "初始脚本开始" },
+      { "op": "setTimeout", "callback": "onTimer", "delay": 0, "label": "first-timer" },
+      { "op": "queueMicrotask", "callback": "microA" }
+    ],
+    "microA": [
+      { "op": "log", "text": "微任务 A" },
+      { "op": "queueMicrotask", "callback": "microB" }
+    ],
+    "microB": [{ "op": "log", "text": "微任务 B（微任务链排空后才轮到定时任务）" }],
+    "onTimer": [
+      { "op": "log", "text": "定时任务执行" },
+      { "op": "clearTimeout", "ref": "first-timer" }
+    ]
+  }
+}

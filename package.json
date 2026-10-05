@@ -1,0 +1,23 @@
+{
+  "name": "checkpoint-replay",
+  "version": "1.0.0",
+  "description": "教学用单线程事件循环模拟器：宏任务 / 微任务检查点回放（TypeScript + Node.js + SQLite，仅 API 与 CLI）",
+  "type": "module",
+  "engines": {
+    "node": ">=22.5.0"
+  },
+  "bin": {
+    "ckpt": "dist/cli.js"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "npm run build && node --test \"dist/test/*.test.js\"",
+    "start": "node dist/cli.js serve",
+    "demo": "node dist/cli.js demo",
+    "cli": "node dist/cli.js"
+  },
+  "devDependencies": {
+    "@types/node": "^22.5.0",
+    "typescript": "^5.6.0"
+  }
+}

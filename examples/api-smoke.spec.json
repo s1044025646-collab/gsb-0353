@@ -1,0 +1,1 @@
+{"initial":"s","callbacks":{"s":[{"op":"log","text":"hi"},{"op":"setTimeout","callback":"t","delay":0,"label":"L"},{"op":"queueMicrotask","callback":"m"}],"m":[{"op":"log","text":"micro"}],"t":[{"op":"log","text":"timer"}]}}
